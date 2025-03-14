@@ -22,7 +22,7 @@ var x = 5;
 console.log(y);
 let y = 10;
 ```
-a) A saída será undefined seguido de erro 
+a) A saída será undefined seguido de erro✅ 
 
 b) A saída será 5 seguido de 10
 
@@ -30,6 +30,8 @@ c) A saída será undefined seguido de undefined
 
 d) A saída será erro em ambas as linhas que utilizam console.log
 
+Justificativa: No primeiro caso será impresso um undefined pois como X é uma var ele é universal, e so foi definido depois do console.log().
+Já no segundo caso, o Y é uma let, uma variavel que não funciona fora do seu escopo, então ela so existirá do código que a define para baixo.
 
 **2) O seguinte código JavaScript tem um erro que impede sua execução correta. Analise e indique a opção que melhor corrige o problema. Justifique sua resposta.**
 
@@ -43,13 +45,15 @@ function soma(a, b) {
 console.log(soma(2, 0));
 ```
 
-a) Substituir if (a || b === 0) por if (a === 0 || b === 0)
+a) Substituir if (a || b === 0) por if (a === 0 || b === 0)✅
 
 b) Substituir if (a || b === 0) por if (a === 0 && b === 0)
 
 c) Substituir if (a || b === 0) por if (a && b === 0)
 
 d) Remover completamente a verificação if (a || b === 0)
+
+Justificativa: O erro ocorre pois para todo valor de a e b ===0 o return será o número inválido.  A resolução resolve o problema para que se a === 0 ou b === 0 o return sera o numero inválido.
 
 ______
 **3) Ao executar esse código, qual será a saída no console? Indique a alternativa correta e justifique sua resposta.**
@@ -78,11 +82,13 @@ console.log(calcularPreco("eletrônico"));
 
 a) O código imprime 1000.
 
-b) O código imprime 200.
+b) O código imprime 200.✅
 
 c) O código imprime 50.
 
 d) O código gera um erro.
+
+Justificativa: Na teoria era pra imprimir o valor 1000, porém como não há um break no final do case eletrônico ele utiliza o preço do case vestuário.
 
 ______
 **4) Ao executar esse código, qual será a saída no console? Indique a alternativa correta e justifique sua resposta.**
@@ -99,8 +105,12 @@ b) 6
 
 c) 18
 
-d) 24
+d) 24✅
+
+Justificativa: Primeiro cada numero da array é multiplicado por 2, depois so os maiores que 5 sao mantidos, por fim soma os restantes.
+Tudo isso é igual a 24
 ______
+
 **5) Qual será o conteúdo do array lista após a execução do código? Indique a alternativa correta e justifique sua resposta.**
 
 ```javascript
@@ -113,9 +123,10 @@ a) ["banana", "maçã", "uva", "abacaxi", "manga", "laranja"]
 
 b) ["banana", "abacaxi", "manga"]
 
-c) ["banana", "abacaxi", "manga", "laranja"]
+c) ["banana", "abacaxi", "manga", "laranja"]✅
 
 d) ["banana", "maçã", "uva", "abacaxi", "manga"]
+Justificativa: .splice(qual termo começa, quantos remove, add1,add2,addn). Ele começará no termo 1(maçã), apaga os termos(maçã e uva) e adiciona no lugar deles abacaxi e manga
 ______
 **6) Abaixo há duas afirmações sobre herança em JavaScript. Indique a alternativa correta e justifique sua resposta**
 
@@ -123,13 +134,15 @@ I. A herança é utilizada para compartilhar métodos e propriedades entre class
 II. Em JavaScript, a herança é implementada através da palavra-chave `extends`.
 
 
-a) As duas afirmações são verdadeiras, e a segunda justifica a primeira.
+a) As duas afirmações são verdadeiras, e a segunda justifica a primeira.✅
 
 b) As duas afirmações são verdadeiras, mas a segunda não justifica a primeira.
 
 c) A primeira afirmação é verdadeira, e a segunda é falsa.
 
 d) A primeira afirmação é falsa, e a segunda é verdadeira.
+
+Justificativa: A herança serve para um classe filha poder acessar todos os métodos da classe mãe, deste modo evita a repetição de código. Para poder acessar a classe mãe há a necessidade da utilização do extends para acessar esses métodos.
 ______
 **7) Dado o seguinte código. Indique a alternativa correta e justifique sua resposta.**
 
@@ -165,13 +178,18 @@ III) O código não funciona corretamente, pois Funcionario não pode herdar de 
 
 Quais das seguintes afirmações são verdadeiras sobre o código acima?
 
-a) I e II são verdadeiras.
+a) I e II são verdadeiras.✅
 
 b) I, II e III são verdadeiras.
 
 c) Apenas II é verdadeira.
 
 d) Apenas I é verdadeira.
+
+Justificativa: I é verdadeira pois a classe funcionarios apresenta 'funcionario extends pessoa', permitindo que o super consiga utilizar os atributos da classe pai.
+II é verdadeira pois o super chama os métodos da classe pai.
+III É falsa pois javascript suporta herança de classes.
+
 
 ______
 
