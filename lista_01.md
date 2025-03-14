@@ -200,11 +200,13 @@ ______
 
 a) A asserção é falsa e a razão é verdadeira.
 
-b) A asserção é verdadeira e a razão é falsa.
+b) A asserção é verdadeira e a razão é falsa.✅
 
 c) A asserção é verdadeira e a razão é verdadeira, mas a razão não explica a asserção.
 
 d) A asserção é verdadeira e a razão é verdadeira, e a razão explica a asserção.
+
+Justificativa: Asserção pois descreve corretamente o que é polimorfismo. A razão é falsa pois polimorfismo não é a sobrecarga de métodos, e sim a sobrescrita deles.
 
 ______
 
@@ -213,9 +215,9 @@ ______
 
 ```javascript
 function somaArray(numeros) {
-
-    for (i = 0; i < numeros.size; i++) {
-        soma = 2*numeros[i];
+    let soma = 0//coloca a variavel soma começando em 0
+    for (let i = 0; i < numeros.leght; i++) {//mudar size para leght e add let atras do i
+        soma += 2*numeros[i];//multiplica cada numero do array por 2 e soma ao total
     }
     return soma;
 }
@@ -226,5 +228,41 @@ ______
 
 - Uma classe `Produto` com atributos `nome` e `preco`, e um método `calcularDesconto()` que aplica um desconto fixo de 10% no preço do produto.
 - Uma classe `Livro` que herda de `Produto` e modifica o método `calcularDesconto()`, aplicando um desconto de 20% no preço dos livros.
+
+  
+```javascript
+class Produto{//cria nome da classe
+    constructor(nome, preço){//define os atributos
+        //declara as variaveis
+        this.nome = nome;
+        this.preço = Number(preço); //transforma o preço de string para number 
+    }
+
+    calcularDesconto(){//define o método calcularDesconto
+        this.preço -=  this.preço/10;//diz que quando essa funçao for aplicada o preço deve ficar 10% mais barato
+        console.log(`Preço com desconto ${this.preço} R$`);//imprime o preço com desconto
+    }
+ 
+}
+
+class Livro extends Produto{//coloca que o Livro é uma função filha de Produto
+    constructor(nome,preço){
+       super(nome,preço)//'importa' os atributos da classe pai
+    }
+    
+    calcularDesconto(){//mesmo calculo de desconto porem 20% agr(essa funçao sobrescreve a outra)
+        this.preço -= this.preço/5
+        console.log(`Preço com desconto ${this.preço} R$`)
+        
+    }
+}
+
+const armario = new Produto('Armário','5000')//cria ujm novo produto
+armario.calcularDesconto()//aplica o desconto no produto
+
+const livro1 = new Livro('sla', '60')//cria um novo livro
+livro1.calcularDesconto()//aplica o desconto no livro
+```
+
 
 Explique como funciona a herança nesse contexto e como você implementaria a modificação do método na classe `Livro`.
